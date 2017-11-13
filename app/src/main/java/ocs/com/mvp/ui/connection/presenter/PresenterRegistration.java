@@ -1,7 +1,4 @@
 package ocs.com.mvp.ui.connection.presenter;
-/*
- * Created by "Appsolute dev" on 11/4/2017.
- */
 
 import android.content.Context;
 

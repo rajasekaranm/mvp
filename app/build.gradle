@@ -3,11 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion SDK_TARGET
     defaultConfig {
-        applicationId "ocs.com.mvp"
         minSdkVersion SDK_MINUMUM
         targetSdkVersion SDK_TARGET
-        versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,24 +13,51 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //enabled data binding
     dataBinding {
         enabled = true
     }
 
-
+//no need to jack option enable for lamda expression if you defined compileOptions
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    //flavor dimension
+    flavorDimensions "default"
+
+    //app flavors
+    productFlavors {
+        dev {
+            dimension "default"
+            applicationId "ocs.com.mvp.dev"
+            buildConfigField 'String', 'BASE_URL', '"your_app_development_url"'
+            resValue 'string', 'app_name', '"MVP DEV"'
+            versionCode 1
+            versionName "1.0"
+        }
+
+        prod {
+            dimension "default"
+            applicationId "ocs.com.mvp"
+            buildConfigField 'String', 'BASE_URL', '"your_app_release_url"'
+            resValue 'string', 'app_name', '"MVP"'
+            versionCode 1
+            versionName "1.0"
+        }
+    }
 }
 
+
 dependencies {
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1',{
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:${VERSION_SUPPORT_LIB}"
     implementation "com.android.support:support-v4:${VERSION_SUPPORT_LIB}"
+    implementation "com.android.support:design:${VERSION_SUPPORT_LIB}"
+    implementation "com.android.support:cardview-v7:${VERSION_SUPPORT_LIB}"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

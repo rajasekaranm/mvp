@@ -3,6 +3,7 @@ package ocs.com.mvp.ui.connection;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 
@@ -21,6 +22,7 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_registration);
         presenterMain = new PresenterRegistration(this, this);
+        initToolbar();
         presenterMain.launchRegisterAPI(binding);
         binding.btRegister.setOnClickListener(View -> {
             Toast.makeText(this, "Success api register", Toast.LENGTH_SHORT).show();
@@ -30,7 +32,7 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
 
     @Override
     public void showAPIRegisterSuccess() {
-        Toast.makeText(this, "test toast", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -41,5 +43,18 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
     @Override
     public void showAlertForInvalidRequest() {
 
+    }
+
+    @Override
+    public void initToolbar() {
+        setSupportActionBar(binding.tbRegistration);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }

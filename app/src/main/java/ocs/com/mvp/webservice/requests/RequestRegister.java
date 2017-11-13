@@ -1,4 +1,4 @@
-package ocs.com.mvp.models.apirequest;
+package ocs.com.mvp.webservice.requests;
 /*
  * Created by "Appsolute dev" on 11/4/2017.
  */

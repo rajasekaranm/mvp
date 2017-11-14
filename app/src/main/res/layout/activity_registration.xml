@@ -34,7 +34,8 @@
                     android:layout_marginTop="24dp"
                     android:ems="10"
                     android:hint="@string/registration.label.first_name"
-                    android:inputType="textCapSentences" />
+                    android:inputType="textCapSentences"
+                    android:theme="@style/ThemeEditProfileEditText" />
 
                 <EditText
                     android:id="@+id/etLastName"
@@ -43,7 +44,8 @@
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:hint="@string/registration.label.last_name"
-                    android:inputType="textCapSentences" />
+                    android:inputType="textCapSentences"
+                    android:theme="@style/ThemeEditProfileEditText" />
 
                 <EditText
                     android:id="@+id/etEmail"
@@ -52,7 +54,8 @@
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:hint="@string/registration.label.email"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:theme="@style/ThemeEditProfileEditText" />
 
                 <EditText
                     android:id="@+id/etPassword"
@@ -61,7 +64,8 @@
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:hint="@string/registration.label.password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:theme="@style/ThemeEditProfileEditText" />
 
                 <EditText
                     android:id="@+id/etConfPassword"
@@ -70,13 +74,15 @@
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:hint="@string/registration.label.confirm_password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:theme="@style/ThemeEditProfileEditText" />
 
                 <Button
                     android:id="@+id/btRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="24dp"
                     android:text="@string/registration.action.register" />
             </LinearLayout>
         </ScrollView>

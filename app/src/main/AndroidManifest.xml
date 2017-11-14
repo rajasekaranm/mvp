@@ -12,7 +12,8 @@
         <activity
             android:name=".ui.connection.RegistrationActivity"
             android:label="@string/activity_title_registration"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
             android:name=".ui.splash.SplashActivity"

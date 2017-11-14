@@ -23,27 +23,24 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
         binding = DataBindingUtil.setContentView(this, R.layout.activity_registration);
         presenterMain = new PresenterRegistration(this, this);
         initToolbar();
-        presenterMain.launchRegisterAPI(binding);
+
         binding.btRegister.setOnClickListener(View -> {
-            Toast.makeText(this, "Success api register", Toast.LENGTH_SHORT).show();
+            presenterMain.launchRegisterAPI(binding);
         });
     }
 
 
     @Override
-    public void showAPIRegisterSuccess() {
-
+    public void onAPIRegisterSuccess() {
+        Toast.makeText(this, "Succes", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showAPIRegisterFailes() {
+    public void onAPIRegisterFailed(String reason) {
+        Toast.makeText(this, "" + reason, Toast.LENGTH_SHORT).show();
 
     }
 
-    @Override
-    public void showAlertForInvalidRequest() {
-
-    }
 
     @Override
     public void initToolbar() {

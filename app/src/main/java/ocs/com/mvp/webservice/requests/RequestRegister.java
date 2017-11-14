@@ -3,13 +3,21 @@ package ocs.com.mvp.webservice.requests;
  * Created by "Appsolute dev" on 11/4/2017.
  */
 
+import com.google.gson.annotations.SerializedName;
+
 public class RequestRegister {
 
-    String firstName;
-    int gender;
-    String email;
-    String lastName;
-    String dob;
+    @SerializedName("firstName")
+    private String firstName;
+
+    @SerializedName("email")
+    private String email;
+    @SerializedName("lastName")
+    private String lastName;
+    @SerializedName("password")
+    private String password;
+    @SerializedName("confirm_password")
+    private String confirmPassword;
 
     public String getFirstName() {
         return firstName;
@@ -19,12 +27,12 @@ public class RequestRegister {
         this.firstName = firstName;
     }
 
-    public int getGender() {
-        return gender;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setGender(int gender) {
-        this.gender = gender;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public String getEmail() {
@@ -43,11 +51,11 @@ public class RequestRegister {
         this.lastName = lastName;
     }
 
-    public String getDob() {
-        return dob;
+    public String getPassword() {
+        return password;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

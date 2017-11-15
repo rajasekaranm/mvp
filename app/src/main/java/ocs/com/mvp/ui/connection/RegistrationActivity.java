@@ -36,7 +36,7 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
 
     @Override
     public void onAPIRegisterSuccess() {
-        Toast.makeText(this, "Succes", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.alert_api_succes, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -65,27 +65,27 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
         if (TextUtils.isEmpty(firstName)) {
             response = false;
             view = binding.etFirstName;
-            binding.etFirstName.setError("required");
+            binding.etFirstName.setError(getString(R.string.alert_field_required));
         } else if (TextUtils.isEmpty(lastName)) {
             response = false;
             view = binding.etLastName;
-            binding.etLastName.setError("required");
+            binding.etLastName.setError(getString(R.string.alert_field_required));
         } else if (TextUtils.isEmpty(email)) {
             response = false;
             view = binding.etEmail;
-            binding.etEmail.setError("required");
+            binding.etEmail.setError(getString(R.string.alert_field_required));
         } else if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             response = false;
             view = binding.etEmail;
-            binding.etEmail.setError("invalid email");
+            binding.etEmail.setError(getString(R.string.alert_field_invalid_email));
         } else if (TextUtils.isEmpty(password)) {
             response = false;
             view = binding.etPassword;
-            binding.etPassword.setError("required");
+            binding.etPassword.setError(getString(R.string.alert_field_required));
         } else if (!password.equalsIgnoreCase(confirmPassword)) {
             response = false;
             view = binding.etConfPassword;
-            binding.etConfPassword.setError("both passwords are not same");
+            binding.etConfPassword.setError(getString(R.string.alert_field_password_mismatch));
         }
 
         if (!response)

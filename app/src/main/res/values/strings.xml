@@ -8,4 +8,8 @@
     <string name="registration.label.confirm_password">Confirm Password</string>
     <string name="registration.action.register">Register</string>
     <string name="activity_title_registration">Registration</string>
+    <string name="alert.field.required">required</string>
+    <string name="alert.field.invalid_email">invalid email</string>
+    <string name="alert.field.password_mismatch">not match with given password</string>
+    <string name="alert.api.succes">Succes</string>
 </resources>

@@ -28,7 +28,8 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
         initToolbar();
 
         binding.btRegister.setOnClickListener(View -> {
-            presenterMain.launchRegisterAPI(getRequestRegister());
+            if (areFieldsValid())
+                presenterMain.launchRegisterAPI(getRequestRegister());
         });
     }
 

@@ -8,14 +8,9 @@ import ocs.com.mvp.webservice.requests.RequestRegister;
 public interface IContractorRegistration {
 
     interface IRegistrationPresenter {
-        void launchRegisterAPI(ActivityRegistrationBinding binding);
+        void launchRegisterAPI(RequestRegister requestRegister);
 
         void onSaveUserIntoDB(User user);
-
-        boolean areFieldsValid(ActivityRegistrationBinding binding);
-
-        RequestRegister getRequestRegister(ActivityRegistrationBinding binding);
-
 
     }
 
@@ -25,5 +20,9 @@ public interface IContractorRegistration {
         void onAPIRegisterFailed(String reason);
 
         void initToolbar();
+
+        boolean areFieldsValid();
+
+        RequestRegister getRequestRegister();
     }
 }

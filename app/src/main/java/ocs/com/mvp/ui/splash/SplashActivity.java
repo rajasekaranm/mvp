@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import ocs.com.mvp.R;
+import ocs.com.mvp.ui.connection.LoginActivity;
 import ocs.com.mvp.ui.connection.RegistrationActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (!isAppKilled) {
-                    startActivity(new Intent(SplashActivity.this, RegistrationActivity.class));
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                     finish();
                 }
             }

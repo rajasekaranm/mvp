@@ -49,7 +49,8 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
     @Override
     public void initToolbar() {
         setSupportActionBar(binding.tbRegistration);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -106,6 +107,11 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
         requestRegister.setPassword(binding.etPassword.getText().toString());
         requestRegister.setConfirmPassword(binding.etConfPassword.getText().toString());
         return requestRegister;
+    }
+
+    @Override
+    public void openHome() {
+
     }
 
     @Override

@@ -12,4 +12,8 @@
     <string name="alert.field.invalid_email">invalid email</string>
     <string name="alert.field.password_mismatch">not match with given password</string>
     <string name="alert.api.succes">Succes</string>
+    <string name="login.action.login">Login</string>
+    <string name="activity_title_login">Login</string>
+    <string name="login.label.or">OR</string>
+    <string name="login.action.create_account">Create Account</string>
 </resources>

@@ -24,5 +24,6 @@ public interface IContractorRegistration {
         boolean areFieldsValid();
 
         RequestRegister getRequestRegister();
+        void openHome();
     }
 }

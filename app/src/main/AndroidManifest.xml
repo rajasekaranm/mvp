@@ -3,6 +3,7 @@
     package="ocs.com.mvp">
 
     <application
+        android:name=".utils.ApplicationMvp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,15 +15,20 @@
             android:label="@string/activity_title_registration"
             android:theme="@style/NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
-
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.connection.LoginActivity"
+            android:label="@string/activity_title_login"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 
 </manifest>

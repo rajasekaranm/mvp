@@ -3,14 +3,22 @@ package ocs.com.mvp.models;
  * Created by "Appsolute dev" on 11/4/2017.
  */
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
 
-    int userId;
-    String firstName;
-    int gender;
-    String email;
-    String lastName;
-    String dob;
+    @SerializedName("userId")
+    private int userId;
+    @SerializedName("firstName")
+    private String firstName;
+    @SerializedName("gender")
+    private int gender;
+    @SerializedName("email")
+    private String email;
+    @SerializedName("lastName")
+    private String lastName;
+    @SerializedName("dob")
+    private String dob;
 
     public int getUserId() {
         return userId;
@@ -60,3 +68,4 @@ public class User {
         this.dob = dob;
     }
 }
+

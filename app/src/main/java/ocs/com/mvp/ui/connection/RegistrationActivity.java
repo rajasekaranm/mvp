@@ -37,11 +37,13 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
     @Override
     public void onAPIRegisterSuccess() {
         Toast.makeText(this, R.string.alert_api_succes, Toast.LENGTH_SHORT).show();
+        openHome();
     }
 
     @Override
     public void onAPIRegisterFailed(String reason) {
         Toast.makeText(this, "" + reason, Toast.LENGTH_SHORT).show();
+        openHome();
 
     }
 

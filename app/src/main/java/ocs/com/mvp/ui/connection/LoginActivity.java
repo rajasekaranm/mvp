@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -37,11 +38,13 @@ public class LoginActivity extends AppCompatActivity implements IContractorLogin
     @Override
     public void onAPILoginSuccess() {
         Toast.makeText(this, R.string.alert_api_succes, Toast.LENGTH_SHORT).show();
+        openHome();
     }
 
     @Override
     public void onAPILoginFailed(String reason) {
         Toast.makeText(this, "" + reason, Toast.LENGTH_SHORT).show();
+        openHome();
     }
 
     @Override
@@ -87,5 +90,12 @@ public class LoginActivity extends AppCompatActivity implements IContractorLogin
     @Override
     public void openHome() {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }

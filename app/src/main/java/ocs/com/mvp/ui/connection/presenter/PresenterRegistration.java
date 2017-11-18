@@ -2,6 +2,7 @@ package ocs.com.mvp.ui.connection.presenter;
 
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -29,24 +30,24 @@ public class PresenterRegistration implements IContractorRegistration.IRegistrat
     @Override
     public void launchRegisterAPI(RequestRegister requestRegister) {
 
-            APIConnection apiConnection = APIClient.getClient().create(APIConnection.class);
-            Call<ResponseRegistration> call = apiConnection.register(requestRegister);
-            call.enqueue(new Callback<ResponseRegistration>() {
-                @Override
-                public void onResponse(Call<ResponseRegistration> call, Response<ResponseRegistration> response) {
-                    if (response.body() != null) {
-                        onSaveUserIntoDB(response.body().getUser());
-                        iRegistrationView.onAPIRegisterSuccess();
-                    } else {
-                        iRegistrationView.onAPIRegisterFailed("Invalid response");
-                    }
+        APIConnection apiConnection = APIClient.getClient().create(APIConnection.class);
+        Call<ResponseRegistration> call = apiConnection.register(requestRegister);
+        call.enqueue(new Callback<ResponseRegistration>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseRegistration> call, @NonNull Response<ResponseRegistration> response) {
+                if (response.body() != null) {
+                    onSaveUserIntoDB(response.body().getUser());
+                    iRegistrationView.onAPIRegisterSuccess();
+                } else {
+                    iRegistrationView.onAPIRegisterFailed("Invalid response");
                 }
+            }
 
-                @Override
-                public void onFailure(Call<ResponseRegistration> call, Throwable t) {
-                    iRegistrationView.onAPIRegisterFailed("Failed");
-                }
-            });
+            @Override
+            public void onFailure(@NonNull Call<ResponseRegistration> call, @NonNull Throwable t) {
+                iRegistrationView.onAPIRegisterFailed("Failed");
+            }
+        });
 
 
     }
@@ -58,9 +59,6 @@ public class PresenterRegistration implements IContractorRegistration.IRegistrat
     public void onSaveUserIntoDB(User user) {
 
     }
-
-
-
 
 
 }

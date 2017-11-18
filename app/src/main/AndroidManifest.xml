@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ocs.com.mvp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:name=".utils.ApplicationMvp"
         android:allowBackup="true"
@@ -28,7 +31,11 @@
             android:name=".ui.connection.LoginActivity"
             android:label="@string/activity_title_login"
             android:theme="@style/NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:label="@string/activity_title_home"
+            android:theme="@style/NoActionBar"/>
     </application>
 
 </manifest>

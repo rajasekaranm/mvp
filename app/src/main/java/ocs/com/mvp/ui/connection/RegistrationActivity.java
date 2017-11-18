@@ -1,5 +1,6 @@
 package ocs.com.mvp.ui.connection;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import ocs.com.mvp.ui.connection.contractor.IContractorRegistration;
 import ocs.com.mvp.ui.connection.presenter.PresenterRegistration;
 import ocs.com.mvp.databinding.ActivityRegistrationBinding;
 import ocs.com.mvp.R;
+import ocs.com.mvp.ui.home.HomeActivity;
 import ocs.com.mvp.webservice.requests.RequestRegister;
 
 public class RegistrationActivity extends AppCompatActivity implements IContractorRegistration.IRegistrationView {
@@ -77,7 +79,7 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
             response = false;
             view = binding.etEmail;
             binding.etEmail.setError(getString(R.string.alert_field_required));
-        } else if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             response = false;
             view = binding.etEmail;
             binding.etEmail.setError(getString(R.string.alert_field_invalid_email));
@@ -113,7 +115,8 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
 
     @Override
     public void openHome() {
-
+        startActivity(new Intent(this, HomeActivity.class));
+        finish();
     }
 
     @Override

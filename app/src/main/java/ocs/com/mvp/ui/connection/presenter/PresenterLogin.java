@@ -28,25 +28,30 @@ public class PresenterLogin implements IContractorLogin.ILoginPresenter {
 
     @Override
     public void launchLoginAPI(RequestLogin requestLogin) {
-        APIConnection apiConnection = APIClient.getClient().create(APIConnection.class);
-        Call<ResponseLogin> call = apiConnection.login(requestLogin);
-        call.enqueue(new Callback<ResponseLogin>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseLogin> call, @NonNull Response<ResponseLogin> response) {
-                iLoginView.onAPILoginSuccess();
-                if (response.body() != null) {
-                    onSaveUserIntoDB(response.body().getUser());
+        try {
+            APIConnection apiConnection = APIClient.getClient().create(APIConnection.class);
+            Call<ResponseLogin> call = apiConnection.login(requestLogin);
+            call.enqueue(new Callback<ResponseLogin>() {
+                @Override
+                public void onResponse(@NonNull Call<ResponseLogin> call, @NonNull Response<ResponseLogin> response) {
                     iLoginView.onAPILoginSuccess();
-                } else {
-                    iLoginView.onAPILoginFailed("Invalid response");
+                    if (response.body() != null) {
+                        onSaveUserIntoDB(response.body().getUser());
+                        iLoginView.onAPILoginSuccess();
+                    } else {
+                        iLoginView.onAPILoginFailed("Invalid response");
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<ResponseLogin> call, @NonNull Throwable t) {
-                iLoginView.onAPILoginFailed("failed");
-            }
-        });
+                @Override
+                public void onFailure(@NonNull Call<ResponseLogin> call, @NonNull Throwable t) {
+                    iLoginView.onAPILoginFailed("failed");
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            iLoginView.onAPILoginFailed("failed");
+        }
 
     }
 

@@ -1,7 +1,4 @@
 package ocs.com.mvp.ui.connection.contractor;
-/*
- * Created by "Appsolute dev" on 11/15/2017.
- */
 
 import ocs.com.mvp.models.User;
 import ocs.com.mvp.webservice.requests.RequestLogin;

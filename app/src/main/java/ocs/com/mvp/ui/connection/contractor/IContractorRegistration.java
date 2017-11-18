@@ -1,7 +1,6 @@
 package ocs.com.mvp.ui.connection.contractor;
 
 
-import ocs.com.mvp.databinding.ActivityRegistrationBinding;
 import ocs.com.mvp.models.User;
 import ocs.com.mvp.webservice.requests.RequestRegister;
 

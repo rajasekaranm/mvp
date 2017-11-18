@@ -13,6 +13,7 @@ import ocs.com.mvp.R;
 import ocs.com.mvp.databinding.ActivityLoginBinding;
 import ocs.com.mvp.ui.connection.contractor.IContractorLogin;
 import ocs.com.mvp.ui.connection.presenter.PresenterLogin;
+import ocs.com.mvp.ui.home.HomeActivity;
 import ocs.com.mvp.webservice.requests.RequestLogin;
 
 public class LoginActivity extends AppCompatActivity implements IContractorLogin.ILoginView {
@@ -64,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements IContractorLogin
             response = false;
             view = binding.etLoginEmail;
             binding.etLoginEmail.setError(getString(R.string.alert_field_required));
-        } else if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             response = false;
             view = binding.etLoginEmail;
             binding.etLoginEmail.setError(getString(R.string.alert_field_invalid_email));
@@ -89,7 +90,8 @@ public class LoginActivity extends AppCompatActivity implements IContractorLogin
 
     @Override
     public void openHome() {
-
+        startActivity(new Intent(this, HomeActivity.class));
+        finish();
     }
 
     @Override

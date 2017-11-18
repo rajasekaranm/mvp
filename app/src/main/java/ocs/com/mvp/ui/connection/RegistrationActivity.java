@@ -2,6 +2,7 @@ package ocs.com.mvp.ui.connection;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -30,8 +31,11 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
         initToolbar();
 
         binding.btRegister.setOnClickListener(View -> {
-            if (areFieldsValid())
+            if (areFieldsValid()) {
+                binding.btRegister.setEnabled(false);
+                binding.btRegister.setBackgroundColor(ContextCompat.getColor(RegistrationActivity.this, R.color.colorAccent));
                 presenterMain.launchRegisterAPI(getRequestRegister());
+            }
         });
     }
 

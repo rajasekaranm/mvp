@@ -34,7 +34,7 @@ public class PresenterLogin implements IContractorLogin.ILoginPresenter {
             call.enqueue(new Callback<ResponseLogin>() {
                 @Override
                 public void onResponse(@NonNull Call<ResponseLogin> call, @NonNull Response<ResponseLogin> response) {
-                    iLoginView.onAPILoginSuccess();
+
                     if (response.body() != null) {
                         onSaveUserIntoDB(response.body().getUser());
                         iLoginView.onAPILoginSuccess();
@@ -49,7 +49,6 @@ public class PresenterLogin implements IContractorLogin.ILoginPresenter {
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
             iLoginView.onAPILoginFailed("failed");
         }
 

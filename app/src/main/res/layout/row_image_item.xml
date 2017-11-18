@@ -9,7 +9,7 @@
         app:cardBackgroundColor="@color/black_30"
         app:cardCornerRadius="8dp"
         app:cardUseCompatPadding="false"
-        app:cardElevation="4dp">
+        app:cardElevation="0dp">
 
         <ImageView
             android:id="@+id/ivImageListItem"

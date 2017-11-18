@@ -30,24 +30,29 @@ public class PresenterRegistration implements IContractorRegistration.IRegistrat
     @Override
     public void launchRegisterAPI(RequestRegister requestRegister) {
 
-        APIConnection apiConnection = APIClient.getClient().create(APIConnection.class);
-        Call<ResponseRegistration> call = apiConnection.register(requestRegister);
-        call.enqueue(new Callback<ResponseRegistration>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseRegistration> call, @NonNull Response<ResponseRegistration> response) {
-                if (response.body() != null) {
-                    onSaveUserIntoDB(response.body().getUser());
-                    iRegistrationView.onAPIRegisterSuccess();
-                } else {
-                    iRegistrationView.onAPIRegisterFailed("Invalid response");
+        try {
+            APIConnection apiConnection = APIClient.getClient().create(APIConnection.class);
+            Call<ResponseRegistration> call = apiConnection.register(requestRegister);
+            call.enqueue(new Callback<ResponseRegistration>() {
+                @Override
+                public void onResponse(@NonNull Call<ResponseRegistration> call, @NonNull Response<ResponseRegistration> response) {
+                    if (response.body() != null) {
+                        onSaveUserIntoDB(response.body().getUser());
+                        iRegistrationView.onAPIRegisterSuccess();
+                    } else {
+                        iRegistrationView.onAPIRegisterFailed("Invalid response");
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<ResponseRegistration> call, @NonNull Throwable t) {
-                iRegistrationView.onAPIRegisterFailed("Failed");
-            }
-        });
+                @Override
+                public void onFailure(@NonNull Call<ResponseRegistration> call, @NonNull Throwable t) {
+                    iRegistrationView.onAPIRegisterFailed("Failed");
+                }
+            });
+        } catch (Exception e) {
+
+            iRegistrationView.onAPIRegisterFailed("Failed");
+        }
 
 
     }

@@ -2,6 +2,7 @@ package ocs.com.mvp.ui.connection;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,8 +29,11 @@ public class LoginActivity extends AppCompatActivity implements IContractorLogin
         initToolbar();
 
         binding.btLoginConfirm.setOnClickListener(View -> {
-            if (areFieldsValid())
+            if (areFieldsValid()) {
+                binding.btLoginConfirm.setEnabled(false);
+                binding.btLoginConfirm.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, R.color.colorAccent));
                 presenterLogin.launchLoginAPI(getLoginRequest());
+            }
         });
         binding.btLoginCreateAcount.setOnClickListener(View -> {
             startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));

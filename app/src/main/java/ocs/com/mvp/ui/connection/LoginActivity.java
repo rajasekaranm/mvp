@@ -2,9 +2,9 @@ package ocs.com.mvp.ui.connection;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +15,7 @@ import ocs.com.mvp.databinding.ActivityLoginBinding;
 import ocs.com.mvp.ui.connection.contractor.IContractorLogin;
 import ocs.com.mvp.ui.connection.presenter.PresenterLogin;
 import ocs.com.mvp.ui.home.HomeActivity;
+import ocs.com.mvp.utils.InternetConnection;
 import ocs.com.mvp.webservice.requests.RequestLogin;
 
 public class LoginActivity extends AppCompatActivity implements IContractorLogin.ILoginView {
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements IContractorLogin
         initToolbar();
 
         binding.btLoginConfirm.setOnClickListener(View -> {
-            if (areFieldsValid()) {
+            if (areFieldsValid() && InternetConnection.isConnected(LoginActivity.this)){
                 binding.btLoginConfirm.setEnabled(false);
                 binding.btLoginConfirm.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, R.color.colorAccent));
                 presenterLogin.launchLoginAPI(getLoginRequest());

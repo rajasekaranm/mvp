@@ -16,6 +16,7 @@ import ocs.com.mvp.ui.connection.presenter.PresenterRegistration;
 import ocs.com.mvp.databinding.ActivityRegistrationBinding;
 import ocs.com.mvp.R;
 import ocs.com.mvp.ui.home.HomeActivity;
+import ocs.com.mvp.utils.InternetConnection;
 import ocs.com.mvp.webservice.requests.RequestRegister;
 
 public class RegistrationActivity extends AppCompatActivity implements IContractorRegistration.IRegistrationView {
@@ -31,7 +32,7 @@ public class RegistrationActivity extends AppCompatActivity implements IContract
         initToolbar();
 
         binding.btRegister.setOnClickListener(View -> {
-            if (areFieldsValid()) {
+            if (areFieldsValid() && InternetConnection.isConnected(RegistrationActivity.this)) {
                 binding.btRegister.setEnabled(false);
                 binding.btRegister.setBackgroundColor(ContextCompat.getColor(RegistrationActivity.this, R.color.colorAccent));
                 presenterMain.launchRegisterAPI(getRequestRegister());

@@ -13,9 +13,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/*
- * Created by "Appsolute dev" on 11/18/2017.
- */
+
 
 public class PresenterLogin implements IContractorLogin.ILoginPresenter {
     private Context context;

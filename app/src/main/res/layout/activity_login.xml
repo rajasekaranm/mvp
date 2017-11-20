@@ -18,12 +18,12 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/tbLogin">
+            android:layout_below="@+id/tbLogin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+               android:paddingTop="72dp"
                 android:orientation="vertical"
                 android:paddingBottom="24dp"
                 android:paddingLeft="32dp"
@@ -36,6 +36,7 @@
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:hint="@string/registration.label.email"
+                    android:text="raja@gmail.com"
                     android:inputType="textEmailAddress"
                     android:theme="@style/ThemeEditProfileEditText" />
 
@@ -46,6 +47,7 @@
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:hint="@string/registration.label.password"
+                    android:text="test"
                     android:inputType="textPassword"
                     android:theme="@style/ThemeEditProfileEditText" />
 
